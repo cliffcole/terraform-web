@@ -125,54 +125,6 @@ resource "aws_subnet" "private_subnet" {
 }
 
 # Create Security Group - Web Traffic
-# resource "aws_security_group" "vpc-web" {
-#   name        = "${var.environment}-vpc-web"
-#   vpc_id      = module.vpc.id
-#   description = "Web Traffic"
-#   tags = {
-#     Name = "web traffic"
-#   }
-# }
-
-# resource "aws_vpc_security_group_ingress_rule" "allow_web" {
-#   security_group_id = aws_security_group.vpc-web.id
-#   cidr_ipv4 = "0.0.0.0/0"
-#   from_port = 80
-#   to_port = 80
-#   ip_protocol = "tcp"
-# }
-# resource "aws_vpc_security_group_ingress_rule" "allow_web_ssl" {
-#   security_group_id = aws_security_group.vpc-web.id
-#   cidr_ipv4 = "0.0.0.0/0"
-#   from_port = 443
-#   to_port = 443
-#   ip_protocol = "tcp"
-# }
-#   ingress {
-#     description = "Allow Port 80"
-#     from_port   = 80
-#     to_port     = 80
-#     protocol    = "tcp"
-#     cidr_blocks = ["0.0.0.0/0"]
-#   }
-
-#   ingress {
-#     description = "Allow Port 443"
-#     from_port   = 443
-#     to_port     = 443
-#     protocol    = "tcp"
-#     cidr_blocks = ["0.0.0.0/0"]
-#   }
-
-#   egress {
-#     description = "Allow all ip and ports outbound"
-#     from_port   = 0
-#     to_port     = 0
-#     protocol    = "-1"
-#     cidr_blocks = ["0.0.0.0/0"]
-#   }
-# }
-# Create Security Group - Web Traffic
 resource "aws_security_group" "vpc-web" {
   name        = "${var.environment}-vpc-web"
   vpc_id      = module.vpc.id
